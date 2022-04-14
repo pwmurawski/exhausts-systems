@@ -1,16 +1,9 @@
 import { createContext } from "react";
-
-interface IThemeAction {
-  type: "change-theme";
-}
-
-type Action = IThemeAction;
+import { ActionType, IState } from "../reducer";
 
 interface IReducerContext {
-  state: {
-    theme: string;
-  };
-  dispatch: React.Dispatch<Action>;
+  state: IState;
+  dispatch: React.Dispatch<ActionType>;
 }
 
 const ReducerContext = createContext<IReducerContext | null>(null);

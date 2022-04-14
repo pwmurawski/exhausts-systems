@@ -13,34 +13,34 @@ import yt from "../../assets/youtube.png";
 
 export default function SocialMediaOfferPage() {
   return (
-    <Container>
-      <Info>
-        <Icon>
-          <Img src={company} />
+    <Container data-testid="conSocialMediaOfferPage">
+      <Info data-testid="info">
+        <Icon data-testid="icon">
+          <Img data-testid="imgSocialMediaOfferPage" src={company} />
         </Icon>
-        <Name>kataNima</Name>
-        <InfoText>Company</InfoText>
+        <Name data-testid="name">kataNima</Name>
+        <InfoText data-testid="infoText">Company</InfoText>
       </Info>
-      <Info>
-        <Icon>
-          <Img src={fb} />
+      <Info data-testid="info">
+        <Icon data-testid="icon">
+          <Img data-testid="imgSocialMediaOfferPage" src={fb} />
         </Icon>
-        <Name>kataNima</Name>
-        <InfoText>Facebook</InfoText>
+        <Name data-testid="name">kataNima</Name>
+        <InfoText data-testid="infoText">Facebook</InfoText>
       </Info>
-      <Info>
-        <Icon>
-          <Img src={ig} />
+      <Info data-testid="info">
+        <Icon data-testid="icon">
+          <Img data-testid="imgSocialMediaOfferPage" src={ig} />
         </Icon>
-        <Name>kataNima</Name>
-        <InfoText>Instagram</InfoText>
+        <Name data-testid="name">kataNima</Name>
+        <InfoText data-testid="infoText">Instagram</InfoText>
       </Info>
-      <Info>
-        <Icon>
-          <Img src={yt} />
+      <Info data-testid="info">
+        <Icon data-testid="icon">
+          <Img data-testid="imgSocialMediaOfferPage" src={yt} />
         </Icon>
-        <Name>kataNima</Name>
-        <InfoText>YouTube</InfoText>
+        <Name data-testid="name">kataNima</Name>
+        <InfoText data-testid="infoText">YouTube</InfoText>
       </Info>
     </Container>
   );

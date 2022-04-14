@@ -34,73 +34,73 @@ export const Slide = styled.label`
 export const Radio = styled.input`
   display: none;
 
-  &#s1:checked
+  &#s0:checked
+    ~ ${Slide}#slide3,
+    &#s1:checked
     ~ ${Slide}#slide4,
     &#s2:checked
-    ~ ${Slide}#slide5,
+    ~ ${Slide}#slide0,
     &#s3:checked
     ~ ${Slide}#slide1,
     &#s4:checked
-    ~ ${Slide}#slide2,
-    &#s5:checked
-    ~ ${Slide}#slide3 {
+    ~ ${Slide}#slide2 {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
     transform: translate3d(-30%, 0, -200px);
   }
 
-  &#s1:checked
-    ~ ${Slide}#slide5,
+  &#s0:checked
+    ~ ${Slide}#slide4,
+    &#s1:checked
+    ~ ${Slide}#slide0,
     &#s2:checked
     ~ ${Slide}#slide1,
     &#s3:checked
     ~ ${Slide}#slide2,
     &#s4:checked
-    ~ ${Slide}#slide3,
-    &#s5:checked
-    ~ ${Slide}#slide4 {
+    ~ ${Slide}#slide3 {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
     transform: translate3d(-15%, 0, -100px);
   }
 
-  &#s1:checked
+  &#s0:checked
+    ~ ${Slide}#slide0,
+    &#s1:checked
     ~ ${Slide}#slide1,
     &#s2:checked
     ~ ${Slide}#slide2,
     &#s3:checked
     ~ ${Slide}#slide3,
     &#s4:checked
-    ~ ${Slide}#slide4,
-    &#s5:checked
-    ~ ${Slide}#slide5 {
+    ~ ${Slide}#slide4 {
     box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3),
       0 11px 7px 0 rgba(0, 0, 0, 0.19);
     transform: translate3d(0, 0, 0);
   }
 
-  &#s1:checked
+  &#s0:checked
+    ~ ${Slide}#slide1,
+    &#s1:checked
     ~ ${Slide}#slide2,
     &#s2:checked
     ~ ${Slide}#slide3,
     &#s3:checked
     ~ ${Slide}#slide4,
     &#s4:checked
-    ~ ${Slide}#slide5,
-    &#s5:checked
-    ~ ${Slide}#slide1 {
+    ~ ${Slide}#slide0 {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
     transform: translate3d(15%, 0, -100px);
   }
 
-  &#s1:checked
+  &#s0:checked
+    ~ ${Slide}#slide2,
+    &#s1:checked
     ~ ${Slide}#slide3,
     &#s2:checked
     ~ ${Slide}#slide4,
     &#s3:checked
-    ~ ${Slide}#slide5,
+    ~ ${Slide}#slide0,
     &#s4:checked
-    ~ ${Slide}#slide1,
-    &#s5:checked
-    ~ ${Slide}#slide2 {
+    ~ ${Slide}#slide1 {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
     transform: translate3d(30%, 0, -200px);
   }

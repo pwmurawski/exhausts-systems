@@ -2,6 +2,7 @@ export default function BackBtnIcon() {
   return (
     <svg
       className="MuiSvgIcon-root"
+      data-testid="backBtnIcon"
       focusable="false"
       viewBox="0 0 24 24"
       aria-hidden="true"

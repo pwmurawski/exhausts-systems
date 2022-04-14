@@ -30,6 +30,7 @@ export const Logo = styled.div`
   overflow: hidden;
   box-shadow: 0px 1px 3px black;
 `;
+
 export const Img = styled.img`
   max-width: 100%;
   height: auto;

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import {
   Container,
   Slider,
@@ -15,28 +16,29 @@ export default function GalleryOfferPage() {
   const images = [img, img2, img3, img4, img5];
 
   return (
-    <Container>
-      <Slider>
-        <Radio type="radio" name="slide" id="s1" defaultChecked />
-        <Radio type="radio" name="slide" id="s2" />
-        <Radio type="radio" name="slide" id="s3" />
-        <Radio type="radio" name="slide" id="s4" />
-        <Radio type="radio" name="slide" id="s5" />
-        <Slide htmlFor="s1" id="slide1">
-          <Img src={images[0]} />
-        </Slide>
-        <Slide htmlFor="s2" id="slide2">
-          <Img src={images[1]} />
-        </Slide>
-        <Slide htmlFor="s3" id="slide3">
-          <Img src={images[2]} />
-        </Slide>
-        <Slide htmlFor="s4" id="slide4">
-          <Img src={images[3]} />
-        </Slide>
-        <Slide htmlFor="s5" id="slide5">
-          <Img src={images[4]} />
-        </Slide>
+    <Container data-testid="conGalleryOfferPage">
+      <Slider data-testid="slider">
+        <Radio
+          data-testid="radio-0"
+          type="radio"
+          name="slide"
+          id="s0"
+          defaultChecked
+        />
+        <Radio data-testid="radio-1" type="radio" name="slide" id="s1" />
+        <Radio data-testid="radio-2" type="radio" name="slide" id="s2" />
+        <Radio data-testid="radio-3" type="radio" name="slide" id="s3" />
+        <Radio data-testid="radio-4" type="radio" name="slide" id="s4" />
+        {images.map((imgEl, idx) => (
+          <Slide
+            key={idx}
+            htmlFor={`s${idx}`}
+            id={`slide${idx}`}
+            data-testid={`slide-${idx}`}
+          >
+            <Img data-testid={`img-${idx}`} src={imgEl} />
+          </Slide>
+        ))}
       </Slider>
     </Container>
   );

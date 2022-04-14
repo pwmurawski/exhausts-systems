@@ -24,20 +24,20 @@ export default function HeaderOfferPage() {
   }, []);
 
   return (
-    <Container bgColor={bgColor}>
+    <Container data-testid="conHeaderOfferPage" bgColor={bgColor}>
       <BackBtn left="10px" top="10px" />
-      <Logo>
-        <Img src={img} />
+      <Logo data-testid="logo">
+        <Img data-testid="img" src={img} />
       </Logo>
-      <Text>
-        <Title>
+      <Text data-testid="text">
+        <Title data-testid="title">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie.
         </Title>
-        <Location>
-          <LocationIcon src={locationImg} />
-          <LocationText>Warszawa</LocationText>
+        <Location data-testid="location">
+          <LocationIcon data-testid="locationIcon" src={locationImg} />
+          <LocationText data-testid="locationText">Warszawa</LocationText>
         </Location>
-        <Price>1000 PLN</Price>
+        <Price data-testid="price">1000 PLN</Price>
       </Text>
       <SocialMediaOfferPage />
     </Container>

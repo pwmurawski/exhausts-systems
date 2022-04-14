@@ -6,7 +6,7 @@ import ContactOfferPage from "../ContactOfferPage/ContactOfferPage";
 
 export default function OfferPageContent() {
   return (
-    <Container>
+    <Container data-testid="conOfferPageContent">
       <HeaderOfferPage />
       <GalleryOfferPage />
       <WindowOfferPage

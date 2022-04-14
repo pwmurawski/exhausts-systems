@@ -5,7 +5,7 @@ import OfferPageContent from "../../components/OfferPageContent/OfferPageContent
 
 export default function OfferPage() {
   return (
-    <Wrapper>
+    <Wrapper data-testid="wrapperOfferPage">
       <Container data-testid="offerPageContainer">
         <OfferPageContent />
       </Container>

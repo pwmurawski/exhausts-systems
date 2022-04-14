@@ -11,9 +11,9 @@ export default function WindowOfferPage({
   bodyContext,
 }: IWindowOfferPageProps) {
   return (
-    <Container>
-      <Header>{headerContext}</Header>
-      <Body>{bodyContext}</Body>
+    <Container data-testid="conWindowOfferPage">
+      <Header data-testid="headerContext">{headerContext}</Header>
+      <Body data-testid="bodyContext">{bodyContext}</Body>
     </Container>
   );
 }

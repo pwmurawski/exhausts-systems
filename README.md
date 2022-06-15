@@ -1,6 +1,8 @@
 ### `live`
 
-https://exhausts-systems.web.app
+https://exhaust-s.web.app
+
+https://exhaust-s.firebaseapp.com
 
 ### `npm start`
 

@@ -19,10 +19,10 @@ export const reducer = (state: IState, action: ActionType) => {
       window.localStorage.setItem("theme", theme);
       return { ...state, theme };
     default:
-      throw new Error(`There is no such action: ${action.type}`);
+      throw new Error("There is no such action");
   }
 };
 
-export const initialState = {
+export const initialState: IState = {
   theme: themeInit(),
 };

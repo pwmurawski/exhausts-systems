@@ -1,5 +1,12 @@
 /* eslint-disable import/prefer-default-export */
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const LeafletContainer = createGlobalStyle`
+  .leaflet-container {
+    height: 100%;
+    width: 100%;
+  }
+`;
 
 export const Container = styled.section`
   display: flex;

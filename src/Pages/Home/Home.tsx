@@ -50,7 +50,7 @@ export default function Home() {
         </Routes>
       </Container>
       <MapContainer data-testid="mapContainer">
-        <Map />
+        <Map mapPosition={[52.1145028, 19.423561111111113]} mapZoom={6} />
       </MapContainer>
     </Wrapper>
   );

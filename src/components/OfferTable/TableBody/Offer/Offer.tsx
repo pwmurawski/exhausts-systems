@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import {
   Container,
   ContentContainer,
@@ -21,6 +22,7 @@ import {
 import officeImg from "../../../../assets/company2.png";
 import locationImg from "../../../../assets/location.png";
 import ObservationIcon from "../../../Svg/ObservationBtn";
+import ReducerContext from "../../../../context/ReducerContext";
 
 interface IOfferProps {
   id: string;
@@ -44,12 +46,20 @@ export default function Offer({
   location,
 }: IOfferProps) {
   const navigate = useNavigate();
+  const reducerCon = useContext(ReducerContext);
 
   return (
     <Container
       data-testid={`offer-${testId}`}
+      onMouseEnter={() => {
+        reducerCon?.dispatch({ type: "setOfferIsMouseHover", id });
+      }}
+      onMouseLeave={() => {
+        reducerCon?.dispatch({ type: "setOfferIsMouseHover", id: null });
+      }}
       onClick={() => {
         navigate(`/offer/${id}`);
+        reducerCon?.dispatch({ type: "setOfferIsMouseHover", id: null });
       }}
     >
       <Center data-testid="center">

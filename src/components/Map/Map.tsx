@@ -1,9 +1,12 @@
-import { LatLngExpression, LeafletMouseEventHandlerFn } from "leaflet";
+/* eslint-disable no-underscore-dangle */
+import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { useContext } from "react";
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
-import { useLocation, useNavigate } from "react-router-dom";
-import markerIcon from "./MarkerIcon/MarkerIcon";
-import { Container, LeafletContainer } from "./styles/MapStyles";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import ReducerContext from "../../context/ReducerContext";
+import { markerIcon, markerIconActive } from "./MarkerIcon/MarkerIcon";
+import { Container, LeafletStyles } from "./styles/MapStyles";
 
 interface IMapProps {
   mapPosition: LatLngExpression;
@@ -13,26 +16,26 @@ interface IMapProps {
 export default function Map({ mapPosition, mapZoom }: IMapProps) {
   const nav = useNavigate();
   const { pathname } = useLocation();
+  const { id } = useParams();
+  const reducerCon = useContext(ReducerContext);
+  const offerIsMouseHover = reducerCon?.state.offerIsMouseHover;
   const markersData = [
     {
-      offerId: 1,
-      city: "Białystok",
+      offerId: "1",
       position: {
         N: 53.1330556,
         E: 23.164166666666667,
       },
     },
     {
-      offerId: 2,
-      city: "Wysokie Mazowieckie",
+      offerId: "2",
       position: {
         N: 52.9166667,
         E: 22.516666666666666,
       },
     },
     {
-      offerId: 3,
-      city: "Warszawa",
+      offerId: "3",
       position: {
         N: 52.25,
         E: 21,
@@ -40,7 +43,7 @@ export default function Map({ mapPosition, mapZoom }: IMapProps) {
     },
   ];
 
-  const markerClickHandler = (offerId: number) => {
+  const markerClickHandler = (offerId: string) => {
     const url = `/offer/${offerId}`;
     if (pathname !== url) {
       nav(url);
@@ -49,7 +52,7 @@ export default function Map({ mapPosition, mapZoom }: IMapProps) {
 
   return (
     <Container>
-      <LeafletContainer />
+      <LeafletStyles />
       <MapContainer center={mapPosition} zoom={mapZoom} scrollWheelZoom>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -59,7 +62,11 @@ export default function Map({ mapPosition, mapZoom }: IMapProps) {
           <Marker
             key={offerId}
             position={[position.N, position.E]}
-            icon={markerIcon}
+            icon={
+              offerIsMouseHover === offerId || id === offerId
+                ? markerIconActive
+                : markerIcon
+            }
             eventHandlers={{
               click: () => {
                 markerClickHandler(offerId);

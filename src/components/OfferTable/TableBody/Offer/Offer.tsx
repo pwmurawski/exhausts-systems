@@ -22,7 +22,7 @@ import {
 import officeImg from "../../../../assets/company2.png";
 import locationImg from "../../../../assets/location.png";
 import ObservationIcon from "../../../Svg/ObservationBtn";
-import ReducerContext from "../../../../context/ReducerContext";
+import HomeReducerContext from "../../../../context/HomeReducerContext";
 
 interface IOfferProps {
   id: string;
@@ -46,20 +46,20 @@ export default function Offer({
   location,
 }: IOfferProps) {
   const navigate = useNavigate();
-  const reducerCon = useContext(ReducerContext);
+  const homeReducer = useContext(HomeReducerContext);
 
   return (
     <Container
       data-testid={`offer-${testId}`}
       onMouseEnter={() => {
-        reducerCon?.dispatch({ type: "setOfferIsMouseHover", id });
+        homeReducer?.dispatch({ type: "setOfferIsMouseHover", id });
       }}
       onMouseLeave={() => {
-        reducerCon?.dispatch({ type: "setOfferIsMouseHover", id: null });
+        homeReducer?.dispatch({ type: "setOfferIsMouseHover", id: null });
       }}
       onClick={() => {
         navigate(`/offer/${id}`);
-        reducerCon?.dispatch({ type: "setOfferIsMouseHover", id: null });
+        homeReducer?.dispatch({ type: "setOfferIsMouseHover", id: null });
       }}
     >
       <Center data-testid="center">

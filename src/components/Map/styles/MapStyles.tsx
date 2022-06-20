@@ -20,7 +20,7 @@ export const LeafletStyles = createGlobalStyle`
   }
   
   .leaflet-active {
-    animation: jump 1.2s infinite;
+    animation: jump 0.8s infinite;
   }
 `;
 

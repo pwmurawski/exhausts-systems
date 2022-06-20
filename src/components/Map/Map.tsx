@@ -1,45 +1,45 @@
 /* eslint-disable no-underscore-dangle */
 import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useContext } from "react";
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import ReducerContext from "../../context/ReducerContext";
+import { useLocation, useNavigate } from "react-router-dom";
 import { markerIcon, markerIconActive } from "./MarkerIcon/MarkerIcon";
 import { Container, LeafletStyles } from "./styles/MapStyles";
+
+interface IMarkersData {
+  offerId: string;
+  position: LatLngExpression;
+}
 
 interface IMapProps {
   mapPosition: LatLngExpression;
   mapZoom: number;
+  markerActiveId?: string | null;
 }
 
-export default function Map({ mapPosition, mapZoom }: IMapProps) {
+const defaultProps = {
+  markerActiveId: null,
+};
+
+export default function Map({
+  mapPosition,
+  mapZoom,
+  markerActiveId,
+}: IMapProps) {
   const nav = useNavigate();
   const { pathname } = useLocation();
-  const { id } = useParams();
-  const reducerCon = useContext(ReducerContext);
-  const offerIsMouseHover = reducerCon?.state.offerIsMouseHover;
-  const markersData = [
+  const markersData: IMarkersData[] = [
     {
       offerId: "1",
-      position: {
-        N: 53.1330556,
-        E: 23.164166666666667,
-      },
+      position: [53.1330556, 23.164166666666667],
     },
     {
       offerId: "2",
-      position: {
-        N: 52.9166667,
-        E: 22.516666666666666,
-      },
+      position: [52.9166667, 22.516666666666666],
     },
     {
       offerId: "3",
-      position: {
-        N: 52.25,
-        E: 21,
-      },
+      position: [52.25, 21],
     },
   ];
 
@@ -53,7 +53,7 @@ export default function Map({ mapPosition, mapZoom }: IMapProps) {
   return (
     <Container>
       <LeafletStyles />
-      <MapContainer center={mapPosition} zoom={mapZoom} scrollWheelZoom>
+      <MapContainer center={mapPosition} zoom={mapZoom}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -61,12 +61,8 @@ export default function Map({ mapPosition, mapZoom }: IMapProps) {
         {markersData.map(({ offerId, position }) => (
           <Marker
             key={offerId}
-            position={[position.N, position.E]}
-            icon={
-              offerIsMouseHover === offerId || id === offerId
-                ? markerIconActive
-                : markerIcon
-            }
+            position={position}
+            icon={markerActiveId === offerId ? markerIconActive : markerIcon}
             eventHandlers={{
               click: () => {
                 markerClickHandler(offerId);
@@ -80,3 +76,5 @@ export default function Map({ mapPosition, mapZoom }: IMapProps) {
     </Container>
   );
 }
+
+Map.defaultProps = defaultProps;

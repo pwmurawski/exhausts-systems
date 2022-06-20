@@ -6,12 +6,12 @@ import Layout from "./components/Layout/Layout";
 import Header from "./components/Layout/Header/Header";
 import Home from "./Pages/Home/Home";
 import SearchHeader from "./components/Layout/Header/SearchHeader/SearchHeader";
-import { reducer, initialState } from "./reducer";
-import ReducerContext from "./context/ReducerContext";
+import { globalReducer, initialState } from "./reducers/globalReducer";
+import GlobalReducerContext from "./context/GlobalReducerContext";
 import Offer from "./Pages/OfferPage/OfferPage";
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(globalReducer, initialState);
   const reducerValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   const header = (
@@ -30,10 +30,12 @@ export default function App() {
   );
 
   return (
-    <ReducerContext.Provider value={reducerValue}>
-      <ThemeProvider theme={state.theme === "light" ? lightTheme : darkTheme}>
+    <GlobalReducerContext.Provider value={reducerValue}>
+      <ThemeProvider
+        theme={reducerValue.state.theme === "light" ? lightTheme : darkTheme}
+      >
         <Layout header={header} content={content} />
       </ThemeProvider>
-    </ReducerContext.Provider>
+    </GlobalReducerContext.Provider>
   );
 }

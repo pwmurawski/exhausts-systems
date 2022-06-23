@@ -21,7 +21,7 @@ export const Img = styled.img`
 
 export const Slide = styled.label`
   margin: auto;
-  width: 70%;
+  width: 73%;
   height: 100%;
   position: absolute;
   left: 0;

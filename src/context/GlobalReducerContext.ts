@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ActionType, IState } from "../reducers/globalReducer";
+import { ActionType, IState } from "../interfaces/IGlobalReducer";
 
 interface IGlobalReducerContext {
   state: IState;

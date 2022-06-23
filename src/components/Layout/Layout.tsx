@@ -11,13 +11,15 @@ const Content = styled.main``;
 interface ILayoutProps {
   header: ReactElement;
   content: ReactElement;
+  auth: ReactElement;
 }
 
-export default function Layout({ header, content }: ILayoutProps) {
+export default function Layout({ header, content, auth }: ILayoutProps) {
   return (
     <Wrapper data-testid="layoutWrapper">
       <Header data-testid="header">{header}</Header>
       <Content data-testid="content">{content}</Content>
+      {auth}
     </Wrapper>
   );
 }

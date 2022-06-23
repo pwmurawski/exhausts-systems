@@ -7,12 +7,18 @@ function Header() {
 function Content() {
   return <main>content</main>;
 }
+function Auth() {
+  return <main>auth</main>;
+}
 
 const header = <Header />;
 const content = <Content />;
+const auth = <Auth />;
 
 const renderLayout = () => {
-  const utils = render(<Layout header={header} content={content} />);
+  const utils = render(
+    <Layout header={header} content={content} auth={auth} />
+  );
 
   return { ...utils };
 };

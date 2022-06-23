@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "../../../interfaces/ITheme";
 
 export const Container = styled.section`
   box-sizing: border-box;
@@ -24,8 +25,8 @@ export const Info = styled.article`
   height: 75px;
   margin: 0 5px;
   border-radius: 5px;
-  background-color: ${({ theme }) => theme.lightColor};
-  box-shadow: 0px 1px 3px ${({ theme }) => theme.shadowColor};
+  background-color: ${({ theme }: Theme) => theme.lightColor};
+  box-shadow: 0px 1px 3px ${({ theme }: Theme) => theme.shadowColor};
   cursor: pointer;
 `;
 
@@ -37,8 +38,8 @@ export const Icon = styled.div`
   align-items: center;
   width: 30px;
   height: 30px;
-  background-color: ${({ theme }) => theme.lightColor};
-  box-shadow: 0px 1px 3px ${({ theme }) => theme.shadowColor};
+  background-color: ${({ theme }: Theme) => theme.lightColor};
+  box-shadow: 0px 1px 3px ${({ theme }: Theme) => theme.shadowColor};
   border-radius: 150px;
   overflow: hidden;
 `;
@@ -50,11 +51,11 @@ export const Img = styled.img`
 
 export const Name = styled.div`
   font-size: 14px;
-  color: ${({ theme }) =>
+  color: ${({ theme }: Theme) =>
     theme.textColor === "gray" ? "black" : theme.textColor};
 `;
 
 export const InfoText = styled.div`
   font-size: 11px;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }: Theme) => theme.textColor};
 `;

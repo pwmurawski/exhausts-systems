@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import {
   Container,
@@ -23,6 +23,7 @@ import officeImg from "../../../../assets/company2.png";
 import locationImg from "../../../../assets/location.png";
 import ObservationIcon from "../../../Svg/ObservationBtn";
 import HomeReducerContext from "../../../../context/HomeReducerContext";
+import { ILocationState } from "../../../../interfaces/ILocationState";
 
 interface IOfferProps {
   id: string;
@@ -46,6 +47,7 @@ export default function Offer({
   location,
 }: IOfferProps) {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const homeReducer = useContext(HomeReducerContext);
 
   return (
@@ -58,7 +60,9 @@ export default function Offer({
         homeReducer?.dispatch({ type: "setOfferIsMouseHover", id: null });
       }}
       onClick={() => {
-        navigate(`/offer/${id}`);
+        navigate(`/offer/${id}`, {
+          state: { btnBackOfferUrl: pathname },
+        } as ILocationState);
         homeReducer?.dispatch({ type: "setOfferIsMouseHover", id: null });
       }}
     >

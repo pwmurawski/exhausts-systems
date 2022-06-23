@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ActionType, IState } from "../reducers/homeReducer";
+import { ActionType, IState } from "../interfaces/IHomeReducer";
 
 interface IHomeReducerContext {
   state: IState;

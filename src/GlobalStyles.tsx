@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { ITheme } from "./interfaces/ITheme";
 
 export const GlobalStyles = createGlobalStyle`
     body {
@@ -15,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 `;
 
-export const lightTheme = {
+export const lightTheme: ITheme = {
   lightColor: "white",
   darkColor: "#f3f6f8",
   hoverColor: "rgb(213, 216, 228)",
@@ -24,7 +25,7 @@ export const lightTheme = {
   shadowColor: "lightgray",
 };
 
-export const darkTheme = {
+export const darkTheme: ITheme = {
   lightColor: "#2C2C2C",
   darkColor: "rgb(32, 32, 32)",
   hoverColor: "#5C5C5C",

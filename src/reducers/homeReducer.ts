@@ -1,13 +1,4 @@
-interface ISetOfferIsMouseHoverAction {
-  type: "setOfferIsMouseHover";
-  id: string | null;
-}
-
-export interface IState {
-  offerIsMouseHover: string | null;
-}
-
-export type ActionType = ISetOfferIsMouseHoverAction;
+import { ActionType, IState } from "../interfaces/IHomeReducer";
 
 export const homeReducer = (state: IState, action: ActionType) => {
   switch (action.type) {
@@ -18,6 +9,6 @@ export const homeReducer = (state: IState, action: ActionType) => {
   }
 };
 
-export const initialState = {
+export const initialState: IState = {
   offerIsMouseHover: null,
 };

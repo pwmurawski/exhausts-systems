@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import exhaust from "../../../assets/exhaust.png";
+import { Theme } from "../../../interfaces/ITheme";
 
 export const Container = styled.section`
   position: relative;
@@ -14,7 +15,7 @@ export const Container = styled.section`
   background-size: 5%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 0px 1px 3px ${({ theme }) => theme.shadowColor};
+  box-shadow: 0px 1px 3px ${({ theme }: Theme) => theme.shadowColor};
 `;
 
 export const Logo = styled.div`

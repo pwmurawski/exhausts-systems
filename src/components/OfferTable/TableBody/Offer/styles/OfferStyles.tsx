@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { Theme } from "../../../../../interfaces/ITheme";
 
 export const Container = styled.tr`
   display: flex;
   height: fit-content;
   margin: 0 10px 12px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.lightColor};
-  box-shadow: 0px 1px 3px ${({ theme }) => theme.shadowColor};
+  background-color: ${({ theme }: Theme) => theme.lightColor};
+  box-shadow: 0px 1px 3px ${({ theme }: Theme) => theme.shadowColor};
   cursor: pointer;
   :hover {
     box-shadow: 0px 1px 2px gray;
@@ -29,7 +30,7 @@ export const ImgContainer = styled.div`
   margin: 5px;
   padding: 0;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.darkColor};
+  background-color: ${({ theme }: Theme) => theme.darkColor};
   border-radius: 10px;
   @media (max-width: 365px) {
     min-width: 130px;
@@ -54,7 +55,7 @@ export const InfoTopLine = styled.div`
   flex: 1;
 `;
 export const Title = styled.h2`
-  color: ${({ theme }) =>
+  color: ${({ theme }: Theme) =>
     theme.textColor === "gray" ? "black" : theme.textColor};
   word-wrap: break-word;
   margin: 0 5px 0 0;
@@ -100,8 +101,8 @@ export const Time = styled.div`
   height: fit-content;
   padding: 5px 10px;
   border-radius: 20px;
-  color: ${({ theme }) => theme.textColor};
-  background-color: ${({ theme }) => theme.darkColor};
+  color: ${({ theme }: Theme) => theme.textColor};
+  background-color: ${({ theme }: Theme) => theme.darkColor};
   font-size: 12px;
   @media (max-width: 473px) {
     font-size: 10px;
@@ -121,8 +122,8 @@ export const InfoPin = styled.div`
   padding: 5px 10px;
   margin: 2px 10px 0 0;
   font-size: 12px;
-  color: ${({ theme }) => theme.textColor};
-  background-color: ${({ theme }) => theme.darkColor};
+  color: ${({ theme }: Theme) => theme.textColor};
+  background-color: ${({ theme }: Theme) => theme.darkColor};
   border-radius: 20px;
   @media (max-width: 473px) {
     font-size: 10px;

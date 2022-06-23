@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Theme } from "../../../../interfaces/ITheme";
 
 export const Header = styled.thead`
   display: flex;
   height: 40px;
   margin-bottom: 8px;
-  background-color: ${({ theme }) => theme.lightColor};
+  background-color: ${({ theme }: Theme) => theme.lightColor};
 `;
 export const Container = styled.tr`
   display: flex;
@@ -26,7 +27,7 @@ export const SortSelect = styled.th`
   padding: 6px 8px;
   margin-right: 16px;
   font-size: 14px;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }: Theme) => theme.textColor};
 `;
 export const Option = styled(NavLink)`
   box-sizing: border-box;
@@ -41,7 +42,7 @@ export const Option = styled(NavLink)`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   font-size: 14px;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }: Theme) => theme.textColor};
   text-decoration: none;
   ::before {
     content: "";
@@ -61,13 +62,13 @@ export const Option = styled(NavLink)`
   }
   &.active,
   &.active:hover {
-    background-color: ${({ theme }) => theme.darkColor};
+    background-color: ${({ theme }: Theme) => theme.darkColor};
     z-index: 1;
     ::before {
       background: radial-gradient(
         circle at left top,
         transparent 70%,
-        ${({ theme }) => theme.darkColor} 69%
+        ${({ theme }: Theme) => theme.darkColor} 69%
       );
       z-index: 1;
     }
@@ -75,25 +76,25 @@ export const Option = styled(NavLink)`
       background: radial-gradient(
         circle at right top,
         transparent 70%,
-        ${({ theme }) => theme.darkColor} 69%
+        ${({ theme }: Theme) => theme.darkColor} 69%
       );
       z-index: 1;
     }
   }
   :hover {
-    background-color: ${({ theme }) => theme.hoverColor};
+    background-color: ${({ theme }: Theme) => theme.hoverColor};
     ::before {
       background: radial-gradient(
         circle at left top,
         transparent 70%,
-        ${({ theme }) => theme.hoverColor} 69%
+        ${({ theme }: Theme) => theme.hoverColor} 69%
       );
     }
     ::after {
       background: radial-gradient(
         circle at right top,
         transparent 70%,
-        ${({ theme }) => theme.hoverColor} 69%
+        ${({ theme }: Theme) => theme.hoverColor} 69%
       );
     }
   }

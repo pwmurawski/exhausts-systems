@@ -3,6 +3,7 @@ import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ILocationState } from "../../interfaces/ILocationState";
 import { markerIcon, markerIconActive } from "./MarkerIcon/MarkerIcon";
 import { Container, LeafletStyles } from "./styles/MapStyles";
 
@@ -46,7 +47,7 @@ export default function Map({
   const markerClickHandler = (offerId: string) => {
     const url = `/offer/${offerId}`;
     if (pathname !== url) {
-      nav(url);
+      nav(url, { state: { btnBackOfferUrl: pathname } } as ILocationState);
     }
   };
 

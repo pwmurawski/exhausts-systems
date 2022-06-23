@@ -1,19 +1,13 @@
 import themeInit from "../helpers/themeInit";
-
-interface IThemeAction {
-  type: "change-theme";
-}
-
-export interface IState {
-  theme: string;
-}
-
-export type ActionType = IThemeAction;
+import { ActionType, IState } from "../interfaces/IGlobalReducer";
 
 export const globalReducer = (state: IState, action: ActionType) => {
   let theme: string | null = null;
 
   switch (action.type) {
+    case "setOffers":
+      return { ...state, offers: action.offers };
+
     case "change-theme":
       theme = state.theme === "light" ? "dark" : "light";
       window.localStorage.setItem("theme", theme);
@@ -24,5 +18,6 @@ export const globalReducer = (state: IState, action: ActionType) => {
 };
 
 export const initialState: IState = {
+  offers: [],
   theme: themeInit(),
 };

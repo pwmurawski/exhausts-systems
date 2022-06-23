@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "../../../interfaces/ITheme";
 
 export const Search = styled.section`
   box-sizing: border-box;
@@ -8,11 +9,11 @@ export const Search = styled.section`
   padding: 3px 10px;
   margin-top: 6px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.darkColor};
+  background-color: ${({ theme }: Theme) => theme.darkColor};
   cursor: text;
   transition: background-color 300ms;
   :hover {
-    background-color: ${({ theme }) => theme.hoverColor};
+    background-color: ${({ theme }: Theme) => theme.hoverColor};
   }
   @media (max-width: 1024px) {
     margin-top: 10px;
@@ -35,5 +36,5 @@ export const SearchInput = styled.input`
   outline: none;
   font-size: 15px;
   font-family: inherit;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }: Theme) => theme.textColor};
 `;

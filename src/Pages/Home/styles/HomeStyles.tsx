@@ -1,13 +1,22 @@
 import styled from "styled-components";
+import {
+  searchHeaderHeight,
+  searchHeaderHeightMaxWidth1024px,
+} from "../../../components/Layout/Header/SearchHeader/styles/SearchHeaderStyles";
+import {
+  headerHeight,
+  headerHeightMaxWidth1024px,
+} from "../../../components/Layout/Header/styles/HeaderStyles";
 
-const headerHeight = "151px";
-const headerHeightMaxWidth1024px = "96px";
 export const Wrapper = styled.section`
   display: flex;
   width: 100%;
-  height: calc(100vh - ${headerHeight});
+  height: calc(100vh - (${headerHeight} + ${searchHeaderHeight}));
   @media (max-width: 1024px) {
-    height: calc(100vh - ${headerHeightMaxWidth1024px});
+    height: calc(
+      100vh -
+        (${headerHeightMaxWidth1024px} + ${searchHeaderHeightMaxWidth1024px})
+    );
   }
 `;
 export const Container = styled.section`

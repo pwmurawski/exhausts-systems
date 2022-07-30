@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Checkbox, Slider, ThemeSwitch } from "./styles/ToggleBtnStyles";
+import { Checkbox, Slider, ToggleBtnContainer } from "./styles/ToggleBtnStyles";
 
 interface IToggleBtnProps {
   isChecked: (checked: boolean) => void;
@@ -26,7 +26,7 @@ export default function ToggleBtn({
   sliderColorChecked,
 }: IToggleBtnProps) {
   return (
-    <ThemeSwitch data-testid="themeSwitch">
+    <ToggleBtnContainer data-testid="toggleBtnContainer">
       <Checkbox
         data-testid="checkbox"
         type="checkbox"
@@ -40,7 +40,7 @@ export default function ToggleBtn({
         bgColorChecked={bgColorChecked}
         sliderColorChecked={sliderColorChecked}
       />
-    </ThemeSwitch>
+    </ToggleBtnContainer>
   );
 }
 

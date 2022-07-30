@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ThemeSwitch = styled.div`
+export const ToggleBtnContainer = styled.div`
   position: relative;
   width: 50px;
   height: 26px;

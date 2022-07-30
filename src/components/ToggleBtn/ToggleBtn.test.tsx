@@ -22,9 +22,9 @@ const renderToggleBtn = () => {
 };
 
 describe("ToggleBtn component", () => {
-  it("render ThemeSwitch", () => {
+  it("render ToggleBtnContainer", () => {
     const { getByTestId } = renderToggleBtn();
-    const themeSwitch = getByTestId("themeSwitch");
+    const themeSwitch = getByTestId("toggleBtnContainer");
 
     expect(themeSwitch).toBeInTheDocument();
   });
@@ -43,9 +43,9 @@ describe("ToggleBtn component", () => {
     expect(slider).toBeInTheDocument();
   });
 
-  it("ThemeSwitch to have style", () => {
+  it("ToggleBtnContainer to have style", () => {
     const { getByTestId } = renderToggleBtn();
-    const themeSwitch = getByTestId("themeSwitch");
+    const themeSwitch = getByTestId("toggleBtnContainer");
 
     expect(themeSwitch).toHaveStyle({
       position: "relative",
